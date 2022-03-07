@@ -1,0 +1,4 @@
+.env
+csvs
+node_modules
+*.pem

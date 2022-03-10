@@ -10,6 +10,9 @@
   },
   "scripts": {
     "start": "node server/index.js",
+    "test": "k6 run script.js",
+    "build": "psql -d siva -f question.sql",
+    "build-ec2": "sudo -u postgres psql -f question.sql",
     "start:node": "nodemon server/index.js"
   }
 }

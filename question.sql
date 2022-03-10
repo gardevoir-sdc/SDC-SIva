@@ -37,7 +37,7 @@ CREATE TABLE questions (
   date_written BIGINT NOT NULL,
   asker_name VARCHAR(50),
   asker_email VARCHAR(62),
-  reported SMALLINT,
+  reported Boolean,
   helpfulness INT
 );
 CREATE TABLE answers (
@@ -47,7 +47,7 @@ CREATE TABLE answers (
   date_written BIGINT NOT NULL,
   answerer_name VARCHAR(50),
   answerer_email VARCHAR(62),
-  reported SMALLINT,
+  reported Boolean,
   helpfulness INT
 );
 CREATE TABLE answers_photos (
@@ -56,18 +56,18 @@ CREATE TABLE answers_photos (
    url VARCHAR(1000)
 );
 
-\COPY questions(id, product_id, body, date_written, asker_name, asker_email, reported, helpfulness)
-FROM './csvs/questions.csv'
+COPY questions(id, product_id, body, date_written, asker_name, asker_email, reported, helpfulness)
+FROM '/Users/sivaranjani/Desktop/HRLA49/SDC/csvs/questions.csv'
 DELIMITER ','
 CSV HEADER;
 
-\COPY answers(id, question_id, body, date_written, answerer_name, answerer_email, reported, helpfulness)
-FROM './csvs/answers.csv'
+COPY answers(id, question_id, body, date_written, answerer_name, answerer_email, reported, helpfulness)
+FROM '/Users/sivaranjani/Desktop/HRLA49/SDC/csvs/answers.csv'
 DELIMITER ','
 CSV HEADER;
 
-\COPY answers_photos(id, answer_id, url)
-FROM './csvs/answers_photos.csv'
+COPY answers_photos(id, answer_id, url)
+FROM '/Users/sivaranjani/Desktop/HRLA49/SDC/csvs/answers_photos.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -75,4 +75,4 @@ CREATE INDEX idx_product_id ON questions(product_id);
 CREATE INDEX idx_question_id ON answers(question_id);
 CREATE INDEX idx_answer_id ON answers_photos(answer_id);
 CREATE INDEX idx_answers_reported ON answers (reported)
-WHERE reported = 0;
+WHERE reported = false;

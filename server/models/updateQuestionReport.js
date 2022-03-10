@@ -2,7 +2,7 @@ const { query } = require('../db');
 module.exports = function updateQuestionReport(answerId) {
   return query(
     `
-    UPDATE questions SET reported = reported + 1 WHERE id = $1;
+    UPDATE questions SET reported = true WHERE id = $1;
     `,
     [answerId],
     (error, result) => {

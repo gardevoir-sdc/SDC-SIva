@@ -4,7 +4,7 @@ module.exports = function updateQuestionHelpful(answerId) {
   return query(
     `
     UPDATE questions
-    SET helpful = helpful + 1
+    SET helpfulness = helpfulness + 1
     WHERE id = $1;
     `,
     [answerId],

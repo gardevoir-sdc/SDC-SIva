@@ -4,6 +4,10 @@ module.exports.helpfulQuestion = require('./helpfulQuestion');
 module.exports.reportQuestion = require('./reportQuestion');
 module.exports.addAnswer = require('./addAnswer');
 module.exports.addQuestion = require('./addQuestion');
+module.exports.listAnswers = require('./listAnswers');
+//localhost:3005/qa/questions/3518964/answers
+module.exports.listQuestions = require('./listQuestions');
+//localhost:3005/qa/questions/?product_id=42366
 // const {queryQuestion, queryAnswers} = require('../models');
 // module.exports ={
 //   getQuestion: (req, res, next) => {
